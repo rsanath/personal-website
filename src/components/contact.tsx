@@ -13,7 +13,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="flex flex-1 flex-col bg-background px-6 py-12 text-foreground"
+      className="flex flex-1 flex-col bg-background px-6 py-12 text-foreground w-150 max-w-[90%]"
     >
       <div className="mx-auto flex w-full max-w-3xl flex-col gap-8">
         <h1 className="font-serif text-3xl font-medium tracking-[-0.02em] sm:text-4xl">

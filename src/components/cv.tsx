@@ -1,9 +1,5 @@
-"use client";
+import { SkillChip, type SkillItem } from "@/components/skill-chip";
 
-import StackIcon, { type IconName } from "tech-stack-icons";
-import { useTheme } from "@/hooks/use-theme";
-
-type SkillItem = { name: string; icon?: string };
 type SkillGroup = { category: string; items: SkillItem[] };
 
 export function CV({
@@ -14,7 +10,7 @@ export function CV({
   experience: string;
 }) {
   return (
-    <section id="about" className="bg-background px-6 py-20 text-foreground">
+    <section id="about" className="bg-background px-6 py-20 text-foreground w-150 max-w-[90%]">
       <div className="mx-auto flex max-w-3xl flex-col gap-20">
         <div className="flex flex-col gap-8">
           <h2 className="font-serif text-3xl font-medium tracking-[-0.02em] sm:text-4xl">
@@ -46,27 +42,5 @@ export function CV({
         </div>
       </div>
     </section>
-  );
-}
-
-function SkillChip({ item }: { item: SkillItem }) {
-  const { theme } = useTheme();
-
-  return (
-    <div className="flex items-center gap-2 rounded-full bg-gray-200 dark:bg-gray-800 py-1.5 pl-1.5 pr-3">
-      {item.icon ? (
-        <span
-          className="flex h-6 w-6 shrink-0 items-center justify-center"
-          suppressHydrationWarning
-        >
-          <StackIcon
-            name={item.icon as IconName}
-            variant={theme}
-            className="h-5 w-5"
-          />
-        </span>
-      ) : null}
-      <span className="font-mono text-sm">{item.name}</span>
-    </div>
   );
 }
