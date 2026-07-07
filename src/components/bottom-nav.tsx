@@ -1,5 +1,17 @@
 "use client";
 
+import { useTheme } from "@/hooks/use-theme";
+import { cn } from "@/util";
+import {
+  AnimatePresence,
+  motion,
+  type MotionValue,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "motion/react";
+import Link from "next/link";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 import {
   FaHouse as Home,
   FaEnvelope as Mail,
@@ -7,18 +19,6 @@ import {
   FaSun as Sun,
   FaUser as User,
 } from "react-icons/fa6";
-import {
-  AnimatePresence,
-  type MotionValue,
-  motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
-} from "motion/react";
-import Link from "next/link";
-import { type ReactNode, useEffect, useRef, useState } from "react";
-import { useTheme } from "@/hooks/use-theme";
-import { cn } from "@/util";
 
 const NAV_ITEMS = [
   { id: "home", href: "/#home", label: "Home", icon: Home },

@@ -11,13 +11,15 @@ const LINK_ICONS: Record<string, ReactNode> = {
 export default function ContactSection() {
   const items = [
     {
-      "name": "email",
-      "url": `mailto:${data.email}`
-    }, ...data.links].map((link) => ({
-      name: link.name,
-      url: link.url,
-      icon: LINK_ICONS[link.name],
-    }))
+      name: "email",
+      url: `mailto:${data.email}`,
+    },
+    ...data.links,
+  ].map((link) => ({
+    name: link.name,
+    url: link.url,
+    icon: LINK_ICONS[link.name],
+  }));
 
   return (
     <section

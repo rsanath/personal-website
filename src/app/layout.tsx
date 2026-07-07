@@ -1,17 +1,12 @@
-import { BottomNav } from "@/components/bottom-nav";
+import "./globals.css";
 import { THEME_INIT_SCRIPT } from "@/hooks/use-theme";
 import type { Metadata } from "next";
-import {
-  Fraunces,
-  Inter,
-  JetBrains_Mono,
-  Manrope
-} from "next/font/google";
-import "./globals.css";
+import { Fraunces, JetBrains_Mono, Manrope } from "next/font/google";
+import { BottomNav } from "@/components/bottom-nav";
 
 const sans = Manrope({
   variable: "--font-sans",
-  subsets: ["latin"]
+  subsets: ["latin"],
 });
 
 const serif = Fraunces({

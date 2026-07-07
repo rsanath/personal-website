@@ -43,7 +43,7 @@ export function CV({
           <div className="text-lg text-foreground-muted whitespace-break-spaces">
             <p className="">{experience}</p>
             <p>
-              {'\n'}Download my resume{" "}
+              {"\n"}Download my resume{" "}
               <Link href="/resume.pdf" target="blank" className="underline">
                 here
               </Link>
