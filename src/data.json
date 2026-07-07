@@ -1,0 +1,22 @@
+{
+  "name": "Sanath",
+  "description": "Hi 👋, I build mobile apps, websites, servers and blockchain apps. I love games and solving puzzles and I also love working out, taking photos and bouldering",
+  "email": "ramsaanath@gmail.com",
+  "links": [
+    {
+      "name": "github",
+      "url": "https://github.com/rsanath"
+    },
+    {
+      "name": "linkedin",
+      "url": "https://github.com/rsanath"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Common Spot",
+      "description": "Compare distance and duration of multiple routes at the same time",
+      "url": "https://common-spot-13a87.web.app/"
+    }
+  ]
+}
