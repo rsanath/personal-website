@@ -10,30 +10,31 @@ Recruiters, potential collaborators, other engineers, and friends discovering Sa
 
 ## Product Purpose
 
-A personal site that showcases who Sanath is (software developer — mobile apps, websites, servers, blockchain) and his work (projects now; blog and photos as future sections). Success looks like a visitor immediately reading the site itself as evidence of craft — clean and easy to scan, but with one deliberate artistic moment that shows creative/technical range.
+A personal site that showcases who Sanath is (software developer — mobile apps, websites, servers, blockchain) and his work (projects now; blog and photos as future sections). Success looks like a visitor immediately reading the site itself as evidence of craft — clean and easy to scan, with one deliberate animated flourish at the top and a plain, well-typeset document feel everywhere else.
 
 ## Brand Personality
 
-Clean, simple, understated confidence — three words: **calm, crafted, unshowy**. The site should not compete for attention section after section; it earns attention once, at the top, and then gets out of the way.
+Three words: **calm, quiet, engineer-y.**
 
-The signature move: an ASCII-art wave loop as the hero background (ocean waves rendered in monospace characters, looping continuously), with the hero title and intro copy scrolling past/over it. It's meant to make a visitor pause and observe for a second, not to dominate the page. Everything below the hero (about, projects, and later blog/photos) is quiet, static, content-first — no competing animations, no ambient effects, no motion for its own sake.
+The ASCII plasma hero (title + intro over a looping animated field) is a fixed, out-of-scope centerpiece — it stays exactly as built. Everything *after* the hero is being redirected toward a plainer, document-like register inspired by luca-felix.com: a single-column, text-led page with no cards or boxed sections, a route-style nav (`/`, `/about`, `/contact` — reads like file paths, not menu labels), and personality carried through small deliberate details rather than decoration. Structure comes from type size and whitespace alone, the way a well-set page reads, not from borders or shadows.
 
-Register lane: between "creative-coder portfolio" and "terminal/ASCII hacker aesthetic," landing closer to editorial-minimal with one signature animated centerpiece rather than a pervasive ASCII/terminal motif throughout.
+Theme is dark-first: the site loads in dark mode by default, with the existing light-mode toggle kept as a considered alternative rather than an equal default.
 
 ## Anti-references
 
 - **Generic SaaS template**: gradient hero text, hero-metric stat blocks, uppercase tracked eyebrows, identical feature-card grids.
-- **Cluttered maximalist portfolio**: competing animations, effects on every section, sensory overload — the opposite of "calm confidence."
+- **Cluttered maximalist portfolio**: competing animations, effects on every section, sensory overload.
 - **Corporate resume-as-website**: bland, generic, no personality — reads like a PDF resume dropped into a template.
+- **Card-heavy / boxy layouts**: nested cards, chip grids, bordered panels standing in for real typographic hierarchy — the post-hero site should read as a document, not a dashboard of tiles.
 
 ## Design Principles
 
-1. **One signature moment, not a pervasive theme.** The ASCII wave hero is the site's single big creative swing. Everything past the fold should feel calm and get out of the reader's way.
-2. **Craft is the content.** Since visitors judge the developer by the site itself, execution quality (typography, spacing, performance, motion polish) matters as much as what the copy says.
-3. **Quiet by default, deliberate by exception.** Default to restraint (whitespace, one accent, static layout); any additional motion or visual flourish must earn its place the way the hero does, not be added reflexively.
-4. **Structure ahead of content.** Build about + projects now with a clear, extensible route structure so blog and photos can be added later without a redesign.
-5. **Observe, don't demand.** Motion (the wave loop) should invite a second look, never force interaction or block reading — reduced-motion users get an equally considered static version, not a degraded one.
+1. **One signature moment, then quiet.** The ASCII plasma hero is the site's single creative flourish and stays unchanged; every other section defers to it instead of adding competing visual moments.
+2. **Hierarchy through type and space, not chrome.** Past the hero, no cards/borders/shadows — heading → subheading → body → link list, structured entirely by type scale and whitespace.
+3. **Personality in small details.** Route-style nav, plain-text framing, and understated touches (not decoration) signal craft the way an engineer would build their own site.
+4. **Dark by default, light as an alternative.** The toggle remains, but the resting state assumes dark.
+5. **Structure ahead of content.** Build about + projects now with a route structure that extends cleanly to blog/photos later, without a redesign.
 
 ## Accessibility & Inclusion
 
-Standard best-effort: WCAG AA contrast and semantics where reasonable. The ASCII wave hero must respect `prefers-reduced-motion` with a genuinely considered static frame (not just a frozen mid-animation glitch) rather than only meeting a technical checkbox.
+Standard best-effort: WCAG AA contrast and semantics where reasonable. The ASCII plasma hero must respect `prefers-reduced-motion` with a genuinely considered static frame, not just a frozen mid-animation glitch.

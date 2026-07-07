@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { twMerge } from "tailwind-merge";
 
 // Same palette as the reference plasma effect: ' .:-=+*#%@' light-to-dense.
 const PALETTE = " .:-=+*#%@";
@@ -32,7 +33,11 @@ for (let i = 0; i < LUT_SIZE; i++) {
   );
 }
 
-export function Plasma() {
+export function Plasma({
+  className
+}: {
+  className?: string
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -236,7 +241,7 @@ export function Plasma() {
   }, []);
 
   return (
-    <div ref={containerRef} className="absolute inset-0" aria-hidden="true">
+    <div ref={containerRef} className={className} aria-hidden="true">
       <canvas ref={canvasRef} className="block" />
     </div>
   );

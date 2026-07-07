@@ -1,98 +1,158 @@
-<!-- SEED: re-run /impeccable document once there's code to capture the actual tokens and components. -->
 ---
 name: Sanath — Personal Site
-description: A calm, near-monochrome developer portfolio with a single ASCII plasma field as its signature moment.
+description: A calm, near-monochrome developer portfolio with a hypnotic ASCII plasma hero and a plain, document-like body.
+colors:
+  background: "oklch(98.2% 0.004 250)"
+  background-dark: "oklch(16% 0.012 250)"
+  foreground: "oklch(19% 0.018 250)"
+  foreground-dark: "oklch(96% 0.006 250)"
+  foreground-muted: "oklch(45% 0.014 250)"
+  foreground-muted-dark: "oklch(74% 0.014 250)"
+  foreground-faint: "oklch(88% 0.006 250)"
+  foreground-faint-dark: "oklch(28% 0.014 250)"
+  teal-accent: "oklch(60% 0.118 184.704)"
+  teal-accent-dark: "oklch(51.1% 0.096 186.391)"
+typography:
+  display:
+    fontFamily: "var(--font-sans), Bricolage Grotesque, system-ui, sans-serif"
+    fontSize: "clamp(2.5rem, 8vw, 5.5rem)"
+    fontWeight: 500
+    lineHeight: 0.95
+    letterSpacing: "-0.04em"
+  headline:
+    fontFamily: "var(--font-sans), Bricolage Grotesque, system-ui, sans-serif"
+    fontSize: "clamp(1.875rem, 3vw, 2.25rem)"
+    fontWeight: 500
+    lineHeight: 1.2
+    letterSpacing: "-0.02em"
+  body:
+    fontFamily: "var(--font-sans), Bricolage Grotesque, system-ui, sans-serif"
+    fontSize: "1rem"
+    fontWeight: 400
+    lineHeight: 1.6
+  label:
+    fontFamily: "var(--font-mono), JetBrains Mono, monospace"
+    fontSize: "0.875rem"
+    fontWeight: 400
+    lineHeight: 1.4
+rounded:
+  pill: "9999px"
+spacing:
+  section-y: "6rem"
+  section-y-lg: "8rem"
+components:
+  theme-toggle:
+    backgroundColor: "{colors.foreground-faint}"
+    rounded: "{rounded.pill}"
+    size: "36px"
+  skill-chip:
+    backgroundColor: "{colors.foreground-faint}"
+    textColor: "{colors.foreground}"
+    typography: "{typography.label}"
+    rounded: "{rounded.pill}"
+    padding: "6px 12px 6px 6px"
 ---
 
 # Design System: Sanath — Personal Site
 
 ## 1. Overview
 
-**Creative North Star: "The Quiet Shoreline"**
+**Creative North Star: "The Hypnotic Stillness"**
 
-The site opens with one deliberate flourish — a looping ASCII plasma field behind the hero title — and then goes quiet. Everything past that first screen (about, projects, and later blog/photos) reads like a well-set page: restrained near-monochrome color, clear type, generous whitespace, no competing motion. The plasma is observed, not performed at; it should make a visitor pause for a second on arrival, not follow them down the page.
+The site opens with one hypnotic flourish — a looping ASCII plasma field, teal bleeding up through a monochrome mask behind the hero title — then goes completely still. Past that first screen, the page reads like a plain, well-set document: single foreground color, type-driven hierarchy, no boxes, no competing motion. The hero is meant to be watched for a second, not performed at; everything after it is meant to be read, not decorated. The word for the whole system is "unique but clean" — one hypnotic, unmistakably custom moment, wrapped in a body that gets out of the way.
 
-This system explicitly rejects the rest of [eloyb.design](https://eloyb.design/) — a named anti-reference the user called out directly: a strong hero idea undercut by a page that stays "fancy" after it. It also rejects generic SaaS-template scaffolding (gradient hero text, hero-metric stat blocks, uppercase eyebrows, identical feature cards), cluttered maximalist portfolios where effects compete for attention, and bland corporate-resume-as-website minimalism that has no personality at all.
+This system explicitly rejects **generic SaaS templates** (gradient hero text, hero-metric stat blocks, uppercase tracked eyebrows, identical feature-card grids), **cluttered maximalist portfolios** (competing animations, effects on every section), **corporate resume-as-website** (bland, generic, template-shaped), and **card-heavy / boxy layouts** (nested cards, chip grids, bordered panels standing in for real typographic hierarchy). The post-hero page is a document, not a dashboard of tiles.
 
 **Key Characteristics:**
-- Near-monochrome palette everywhere except the hero; the ASCII plasma carries a vivid, full-hue color cycle as its one deliberate departure from the site's single-foreground-color rule.
-- One signature animated moment (the hero), zero ambient motion elsewhere.
-- Sans-led type with a mono thread (echoing the ASCII texture) and serif used only for rare, singular emphasis.
-- Flat, static, content-first below the fold — calm confidence over spectacle.
+- Near-monochrome foreground/background scale (hue 250, near-zero chroma) carries every surface, border, and body of text.
+- Teal is the one accent color, sourced from Tailwind's teal-600/700 — used site-wide, but rationed, never the resting-state color of the page.
+- One signature animated moment (the plasma hero); zero ambient motion elsewhere.
+- Mono type (JetBrains Mono) is reserved for metadata and labels — dates, categories, route-style nav links — never for headlines or paragraph prose.
+- Dark is the default resting theme; light is a considered, fully-supported alternative via the toggle, not an equal coin-flip.
+- Flat by default: no shadows anywhere in the system. Depth comes from tonal layering (`foreground-faint` fills) and hairline dividers, not elevation.
 
 ## 2. Colors
 
-**The Two-Tone Rule.** Outside the hero, the palette is near-zero chroma: dark foreground on a light background (and the inverse in dark mode). Color is not a design lever here — contrast, type, and layout are. The hero's plasma field is the one named exception (see below); every other surface stays on the foreground ramp.
-
-Tokens resolve via a `data-theme` attribute on `<html>` (`light` default, `dark` override), driving both Tailwind's `dark:` variant and these custom properties from one source — no separate dark-mode logic per component.
+Near-monochrome everywhere except one rationed accent; the palette reads as ink-on-paper (dark: paper-on-ink) with a single teal signal.
 
 ### Primary
-- **Foreground** — the near-black text tone, used for headings, body copy, borders, and icons everywhere outside the hero's plasma.
+- **Signal Teal** (`oklch(60% 0.118 184.704)` light / `oklch(51.1% 0.096 186.391)` dark — Tailwind teal-600/700): the one accent. Currently the hero's plasma-mask gradient; extends site-wide as the sole accent for interactive/active states (link hover, active nav item, focus rings). Never used as a body background.
 
 ### Neutral
-- **Background** — near-white background (light mode) / near-black background (dark mode). True neutral or chroma nudged only fractionally toward the foreground's own hue — never toward a warm cream/sand default.
-- **Foreground-muted** — a lower-contrast step of the foreground tone for secondary text (captions, metadata), still meeting body-text contrast minimums, not a washed-out gray.
-
-### Hero Exception
-The ASCII plasma renders in a saturated hue (~70%) that cycles across the full wheel over time and space — a deliberate, named departure from the foreground ramp, confined entirely to the hero background. This is intentionally vivid, not a muted accent. Lightness is tuned per theme rather than shared: darker/richer marks in light mode (against the near-white background, higher saturation reads as pastel-washed at high lightness) and lighter marks in dark mode, so the plasma stays vivid and legible against the background in both themes without fighting the hero text for contrast.
+- **Paper Ink** (`oklch(98.2% 0.004 250)` bg / `oklch(19% 0.018 250)` fg, light mode): the resting light surface and its body text.
+- **Deep Ink** (`oklch(16% 0.012 250)` bg / `oklch(96% 0.006 250)` fg, dark mode): the default resting surface and its body text.
+- **Muted Ink** (`oklch(45% 0.014 250)` light / `oklch(74% 0.014 250)` dark): secondary text — subtitles, descriptions, dates, captions.
+- **Faint Ink** (`oklch(88% 0.006 250)` light / `oklch(28% 0.014 250)` dark): the only "filled" surface in the system — chip backgrounds, hairline dividers, the theme-toggle button. Never a full-section background.
 
 ### Named Rules
-**The Hero-Only Color Rule.** Any hue outside the foreground ramp is confined to the hero's plasma field. Every other surface — nav, body, footer, future sections — resolves to a tint or shade of the foreground tone. If a new element seems to need its own hue, that's a sign it belongs in the hero, not the rest of the page.
+**The One Voice Rule.** Teal is the single named accent in the system. It should never cover more than roughly 10% of any given screen; its rarity — one gradient, one hover state, one active indicator — is what makes it read as deliberate rather than decorative.
+
+**The No New Neutrals Rule.** Every "colored" surface in the system (text, border, fill) is a step on the same hue-250 near-zero-chroma ramp. Don't introduce a second gray family (warm grays, blue-grays) alongside it.
 
 ## 3. Typography
 
-**Display/Body Font:** a clean sans (grotesk or humanist — chosen at implementation) carries headings and body copy.
-**Mono Font:** reserved for labels, metadata, code-adjacent details, and anything that should echo the ASCII wave's texture (e.g. a nav label, a timestamp, a footer detail).
-**Serif:** used sparingly, for one or two singular emphasis moments only (e.g. a pull-quote, the site's name/wordmark, or a single line in the hero) — not a full second voice running throughout.
+**Display/Body Font:** Bricolage Grotesque (`var(--font-sans)`, with system-ui/sans-serif fallback)
+**Label/Mono Font:** JetBrains Mono (`var(--font-mono)`, with monospace fallback)
 
-**Character:** confident and quiet — the sans does the talking, mono adds a quiet technical accent, and the serif appears rarely enough that it feels chosen, not decorative.
+**Character:** One grotesque sans carries both display and body — confident, slightly quirky at large sizes, plain and legible at body sizes — paired against a mono thread used exclusively for metadata, echoing the ASCII texture of the hero without turning the whole site into a terminal pastiche.
 
 ### Hierarchy
-- **Display** (sans, weight TBD, clamp ≤ 6rem, tight leading): hero title only, sitting over/scrolling past the ASCII wave.
-- **Headline / Title** (sans, weight TBD): section headings (About, Projects).
-- **Body** (sans, regular weight, 65–75ch max line length): bio, project descriptions, future blog copy.
-- **Label** (mono, small size): nav items, dates, tags, metadata — anywhere a "technical" texture reinforces the ASCII motif without repeating it literally.
-- **Emphasis** (serif, used rarely): a single quote, name, or accent line where a second voice is deliberately noticeable.
+- **Display** (500, `clamp(2.5rem, 8vw, 5.5rem)`, leading 0.95, tracking `-0.04em`): the hero `<h1>` only — "Hi, I'm {name}". Text-balanced.
+- **Headline** (500, `text-3xl`–`text-4xl` / clamp `1.875rem`–`2.25rem`, tracking `-0.02em`): section titles past the hero ("Skills", "Experience").
+- **Title** (500, default body size): per-item titles — job role, project name.
+- **Body** (400, 1rem, leading 1.6, capped ~65–75ch): descriptions, highlight bullets, intro copy.
+- **Label** (400, `text-sm`, mono): dates, category headers, skill-chip text — always mono, always muted-ink colored, never the loudest thing on the line.
 
 ### Named Rules
-**The Rare Serif Rule.** The serif appears in at most one or two places per page. If it starts showing up in body copy or repeated components, it has stopped being an accent.
+**The Mono-Metadata Rule.** JetBrains Mono is reserved for metadata — dates, categories, route-style nav labels, the hero subtitle. It never sets a headline or a paragraph of prose; that boundary is what keeps the "engineer-y" personality a detail instead of a costume.
 
 ## 4. Elevation
 
-Flat by default. No shadow vocabulary — depth, where needed, comes from foreground/background contrast and spacing, not elevation. The one exception is the hero: the ASCII plasma sits behind the title as a full-bleed background layer, which is a stacking/z-index concern, not a shadow one.
+Flat by default, everywhere. There are no `box-shadow` values in the system. Depth and grouping are conveyed through tonal layering (`foreground-faint` as the one "raised" fill, used for chips and the theme-toggle button) and hairline `border-t border-foreground-faint` dividers between list items — never through elevation, blur, or shadow.
 
 ### Named Rules
-**The Flat Page Rule.** Nothing below the hero lifts, glows, or casts a shadow. If a component seems to need elevation to read correctly, restructure it with contrast or spacing instead.
+**The Flat-By-Default Rule.** If a component needs to feel separated from its neighbor, reach for a hairline divider or a faint-ink fill before reaching for a shadow. Shadows are not part of this system's vocabulary.
 
 ## 5. Components
 
-Component library is not yet built — About/Projects UI and nav will be authored during implementation, guided by the rules above. Canonical primitives (nav, links, project list item) should stay flat, near-monochrome, with mono used for any label-like text and no card chrome unless a card is genuinely the best affordance for a project entry.
-
-### ASCII Plasma Hero (signature component)
-A classic demoscene plasma field (sum-of-sines, rendered as density-mapped ASCII characters from a light-to-dense palette) fills the hero background, with the hero title and intro copy layered above/scrolling past it on scroll. Colors are the vivid, slowly-cycling hue described in the Hero Exception above, tuned separately for light and dark theme. Must degrade to a genuinely considered static frame under `prefers-reduced-motion`, not a frozen mid-loop glitch, and pause while the tab is hidden.
-
 ### Theme Toggle
-A small icon button, fixed to the top-right corner of the viewport on every page, switching the `data-theme` attribute between `light` and `dark` and persisting the choice to `localStorage`. Sits on a filled circular chip (foreground-faint — a shade off the background, not the background itself) so it reads as a control against any hero content behind it. Defaults to system preference (`prefers-color-scheme`) on first visit; an inline script applies the stored or system theme before first paint so there's no flash.
+- **Shape:** full pill (`rounded-full`), 36×36px, fixed top-right.
+- **Style:** semi-transparent faint fill (`bg-white/50` light / `bg-black/50` dark) so it sits above content without a hard edge.
+- **State:** sun/moon icon swap via the `dark:` variant; `active:scale-95` for a tactile press. No hover elevation — the scale press is the only feedback.
+
+### Skill Chips
+- **Style:** full pill (`rounded-full`), `foreground-faint` background, no border.
+- **Content:** optional 20px tech icon + mono label text, left-aligned with tight internal padding (`py-1.5 pl-1.5 pr-3`).
+- **State:** static — no hover/selected variants; chips are informational, not interactive.
+
+### Lists / Containers
+- No card component exists in this system, by design. Repeating content (experience entries) is a flat vertical list, each item separated by a `border-t border-foreground-faint` hairline rather than boxed into a card. Do not introduce a bordered/shadowed card wrapper here.
+
+### Navigation (planned — post-hero pivot, not yet built)
+- Route-style, slash-prefixed labels (`/`, `/about`, `/contact`) rather than menu words — reads like file paths.
+- Fixed to the bottom of the viewport, mono type, muted-ink at rest, teal (the One Voice accent) on hover/active.
+- Minimal inventory: 3–4 links, no dropdown, no hamburger, no logo-as-home trick.
+
+### Plasma Hero (signature component)
+- Full-viewport (`h-dvh`) canvas-rendered ASCII plasma field, looping continuously, masked to fade out over the lower half of the section (`mask-[linear-gradient(to_bottom,black_1%,transparent_100%)]`).
+- Teal gradient (`from-teal-700` dark / `from-teal-600` light, `to-transparent`) sits behind the canvas as the plasma's color signal.
+- Hero title/subtitle scroll-link: on scroll, content translates down and fades out (`translateY(progress * 24px)`, opacity `1 - progress * 1.15`) via `requestAnimationFrame`, fully skipped under `prefers-reduced-motion: reduce`.
+- A single scroll-cue chevron animates in place (`hero-scroll-cue`, 2.4s, `motion-safe:` gated) beneath the content as the only other hint of motion in the hero.
 
 ## 6. Do's and Don'ts
 
 ### Do:
-- **Do** keep everything past the hero flat, static, and content-first.
-- **Do** confine the plasma's hue-cycle to the hero; render every other "colored" element as a tint/shade of the foreground tone.
-- **Do** use mono only for label-scale, technical-feeling text; serif only for singular emphasis moments.
-- **Do** ship a real static plasma frame for `prefers-reduced-motion`, considered as its own composition, not a paused loop.
-- **Do** drive light/dark exclusively through the `data-theme` attribute (Tailwind's `dark:` variant + these tokens both read it) — no per-component theme logic.
+- **Do** keep teal to roughly 10% of any screen — one gradient, one hover state, one active indicator (The One Voice Rule).
+- **Do** use hairline `border-t border-foreground-faint` dividers between repeating list items instead of cards.
+- **Do** reserve JetBrains Mono for metadata (dates, categories, nav labels) — never headlines or prose (The Mono-Metadata Rule).
+- **Do** default to dark mode on load; keep the light toggle fully supported, not an afterthought.
+- **Do** give the plasma hero's `prefers-reduced-motion` treatment a genuinely considered static frame, not a frozen mid-loop glitch.
+- **Do** let the post-hero page read as a plain document: heading → subheading → body → link list, structured by type size and whitespace alone.
 
 ### Don't:
-- **Don't** replicate the rest of eloyb.design past its hero — no lingering "fanciness" once the hero moment is over.
-- **Don't** use gradient hero text, hero-metric stat blocks, uppercase tracked eyebrows, or identical feature-card grids (generic SaaS template scaffolding).
-- **Don't** let effects compete for attention across sections (cluttered maximalist portfolio).
-- **Don't** default to a bland, personality-free resume-in-a-template layout.
-- **Don't** introduce a second hue family outside the foreground ramp anywhere on the page except the hero.
-- **Don't** add ambient or looping motion outside the hero — the plasma is the one signature moment.
-
-## 7. Implementation Conventions
-
-- **Tailwind first.** Style with Tailwind utility classes. Reach for inline styles (the `style` prop, or direct DOM `.style` access) only when the effect genuinely isn't expressible in Tailwind — computed/dynamic values, canvas drawing, etc. (see `plasma.tsx`'s `ctx.fillStyle` and `canvas.style.fontFamily`).
-- **No CSS files beyond the single Tailwind entry point.** `src/app/globals.css` exists only for Tailwind's import, the `data-theme` custom variant, and the color/animation tokens under `@theme inline`. Don't add component stylesheets, CSS Modules, or other global CSS files.
-- **Conditional classes go through `cn`.** Use the `cn` helper from `src/util.ts` (clsx + tailwind-merge) any time class names are conditional or composed — never string-concatenate or template-literal class names together.
+- **Don't** add gradient text, hero-metric stat blocks, or uppercase tracked eyebrows anywhere (generic SaaS template).
+- **Don't** stack competing animations or add effects to every section (cluttered maximalist portfolio).
+- **Don't** wrap repeating content in bordered/shadowed cards, nested cards, or chip grids standing in for hierarchy (card-heavy layout).
+- **Don't** introduce a second gray family alongside the hue-250 near-monochrome ramp.
+- **Don't** use `box-shadow` for depth or separation; this system has no shadow vocabulary (The Flat-By-Default Rule).
+- **Don't** let the hero flourish bleed past the first screen — everything below it stays static and quiet.

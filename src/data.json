@@ -9,7 +9,97 @@
     },
     {
       "name": "linkedin",
-      "url": "https://github.com/rsanath"
+      "url": "https://linkedin.com/in/rsanath"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Languages",
+      "items": [
+        { "name": "TypeScript", "icon": "typescript" },
+        { "name": "JavaScript", "icon": "js" },
+        { "name": "Python", "icon": "python" },
+        { "name": "Java", "icon": "java" },
+        { "name": "Kotlin", "icon": "kotlin" },
+        { "name": "Dart", "icon": "dart" }
+      ]
+    },
+    {
+      "category": "Frontend & Mobile",
+      "items": [
+        { "name": "React", "icon": "react" },
+        { "name": "React Native", "icon": "reactnative" },
+        { "name": "Tailwind CSS", "icon": "tailwindcss" },
+        { "name": "Expo", "icon": "expo" },
+        { "name": "Flutter", "icon": "flutter" }
+      ]
+    },
+    {
+      "category": "Backend & Infra",
+      "items": [
+        { "name": "Node.js", "icon": "nodejs" },
+        { "name": "PostgreSQL", "icon": "postgresql" },
+        { "name": "MySQL", "icon": "mysql" },
+        { "name": "MongoDB", "icon": "mongodb" },
+        { "name": "AWS", "icon": "aws" },
+        { "name": "Google Cloud", "icon": "gcloud" },
+        { "name": "Firebase", "icon": "firebase" },
+        { "name": "CircleCI", "icon": "circleci" }
+      ]
+    },
+    {
+      "category": "Web3",
+      "items": [
+        { "name": "Solidity", "icon": "solidity" },
+        { "name": "Ethereum" },
+        { "name": "Bitcoin" }
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "role": "Full Stack Developer",
+      "company": "Freelance",
+      "location": "Remote",
+      "start": "2022",
+      "end": "Present",
+      "highlights": [
+        "Built self-custodial wallets and multi-signature tools with Ledger and Trezor hardware wallet support.",
+        "Designed and deployed smart contracts on Ethereum based chains, one of them audited by Least Authority."
+      ]
+    },
+    {
+      "role": "Software Developer",
+      "company": "Solar for Schools",
+      "location": "",
+      "start": "2020",
+      "end": "2022",
+      "highlights": [
+        "Co-built a mobile app used by 300+ schools across 4 countries to estimate ROI on solar investment.",
+        "Built solar design and analysis tools on top of Google Maps SDKs."
+      ]
+    },
+    {
+      "role": "Freelance Developer",
+      "company": "Scroble",
+      "location": "Remote",
+      "start": "2020",
+      "end": "2021",
+      "highlights": [
+        "Built a fullstack ecommerce app for a luxury brand, including a drag and drop product viewer.",
+        "Built a management portal for inventory, users, and promotions across multiple stores."
+      ]
+    },
+    {
+      "role": "Frontend Developer",
+      "company": "Wipro Digital",
+      "location": "Bangalore",
+      "start": "2020",
+      "end": "2020",
+      "highlights": [
+        "Built internal financial management tools for a tier one bank.",
+        "Created a reusable React component library that improved developer experience across the team."
+      ]
     }
   ],
   "projects": [

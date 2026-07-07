@@ -1,0 +1,116 @@
+﻿RAM SANATH KUMAR
+Email: ramsaanath@gmail.com | Phone: +91 9952133952 
+LinkedIn: linkedin.com/in/rsanath | GitHub: github.com/rsanath
+
+
+Technical Skills
+Programming Languages: Typescript, Javascript, Python, Java, Kotlin, Dart.
+Frontend & Mobile: React, React Native, Tailwind CSS, Expo, Flutter, Native Android.
+Backend & Infrastructure: Node.js, REST APIs, Microservice Architecture, CI/CD Pipelines (GitHub Actions, CircleCI)
+Databases: MySQL, PostgreSQL, MongoDB.
+Cloud: AWS (EC2, S3, Lambda), Google Cloud, Firebase (Functions, Firestore, Analytics, Hosting, OAuth, Storage).
+Web3 & Blockchain: Ethereum, Bitcoin, ethers.js, SafeSDK, bitcoinjs-lib, BouncyCastle, HD Wallets, cryptography.
+Platforms: Ledger, Trezor hardware wallet, Stripe, Chainflip, Testflight, Google Play Console.
+Tools & Methodologies: GitHub, Jira, Agile, TDD, Integration Testing.
+
+
+Professional Experience
+Full Stack Developer, Remote, Freelance
+	Jan 2022 – Present
+	Owned end-to-end client engagement, from requirement gathering, solution designing, iterating on feedback, timeline management without a dedicated PM.
+* Architected and shipped blockchain native applications solutions (Ethereum/Bitcoin wallets, multi-signature solutions, browser-based DeFi) with integrated Ledger and Trezor hardware wallets.
+* Designed and built audited blockchain application that's approved by top-tier cybersecurity firm (Least Authority).
+* Designed and deployed smart contracts on ethereum based chains written in solidity.
+* Engineered secure HD wallet infrastructure with xpub derivation and real-time balance synchronization.
+* Published and managed npm libraries (SDKs and Crypto Utils).
+* Contributed fixes to open-source projects.
+* Developed applications for POS terminals and NFC powdered devices.
+* Developed progressive web apps and browser extensions.
+Solar for Schools, Software Developer
+	Aug 2020 - Jan 2022
+	* Co-built responsive mobile app used by 300+ schools across 4 countries for calculating ROI on solar investment and energy savings analysis.
+* Architected advanced solar design and analysis tools using Google Maps SDKs.
+* Gamified environmental education for students using mobile apps,
+* Developed REST APIs and Single Page Applications for solar analytics.
+Scroble, Remote - Freelance Developer
+	May 2020 - Oct 2021
+	* Developed fullstack e-commerce mobile app for a luxury brand,
+* Designed a unique drag-and-drop interface for viewing their products on a canvas.
+* Engineered a business management portal for inventory, user, product, and promotion management across multiple stores
+
+
+
+Wipro Digital, Bangalore - Frontend Developer
+	Mar 2020 - Jul 2020
+	   * Built internal financial management tools for a tier-1 bank.
+   * Migrated manually maintained workflows to specialized applications, reducing intervention.
+   * Created a reusable React component library (storybook) that improved developer experience across the team.
+
+
+Newgen KnowledgeWorks, Chennai - Software Developer
+	Dec 2017 - Dec 2018 / Jan 2019 - Feb 2020
+	   * Built an end-to-end publishing platform serving authors, proof readers, and publishers.
+   * Led migration of a monolithic web application into microservices improving maintainability.
+   * Designed a specialized report generation dashboard replacing a legacy query based system.
+   * Migrated legacy SOAP based APIs into modern REST APIs.
+   * Developed webpages using Ruby on Rails and Haml.
+
+Talent Takeaways, Chennai - Software Developer Intern
+	Jun 2017 - Sep 2017
+	      * Built a marketplace mobile app specializing in jewelry that also provided a knowledge base on different diamond cuts.
+      * Integrated payment gateway and order tracking on the user’s dashboard.
+
+
+Projects
+
+
+Cross-Chain Stable Coin Bridge (NDA)
+Custom lock-and-mint bridge for USDC between Ethereum and a private Besu-based EVM chain
+      * Designed and deployed solidity vault contract on the collateral chain with role based access control, event driven verification, time-locked withdrawals.
+      * Deployed a bridge token contract on the custom chain, pegged 1:1 to the collateral chain using cross chain nounce tracking to prevent replay attacks.
+      * Built a node relayer polling block for events and a PostgreSQL queue enabling horizontally scalable mint/burn workers. 
+
+MultiSignature Wallet (NDA)
+Highly secure and convenient multi-chain multi-signature blockchain account.
+         * Architected and shipped a self-custodial 2-of-3 multi-signature wallet with recovery services.
+         * Supports Ethereum like chains and Bitcoin with features such as staking for yields and swapping tokens.
+         * Integrated native Bitcoin derivations and used Safe Global for Ethereum which is used by popular exchanges like Bybit for cold storage.
+         * Architected using nodejs, React Native, bitcoinjs-lib, ethers.js.
+
+Payment Wallet (NDA)
+A digital cash collection solution for small businesses.
+         * Developed enterprise mobile wallet for blockchain-based B2B digital payments with multi-factor authentication.
+         * Included real-time payment synchronization using gRPC protocol.
+         * Integrated cryptographic wallets with biometric verification using Apple’s secure enclave and Android keystore.
+
+
+Common Spot (Personal Project) 
+         * Multi destination route planner that connects a destination from more than one point and vice-versa.
+         * Useful to assess the closest point of interest based on travel time.
+         * Can also be used to know the travel time to a destination from various starting points.
+
+
+Blood Donation App (Social Innovation - News Article)
+A mobile app that connects donors with recipients in need of blood.
+         * Implemented matching algorithm based on multiple parameters like proximity, last donation date.
+         * Built with consultation from experts in the field for the system’s design.
+
+
+Missing Person Finder (Academic Project)
+         * An application to find missing people using publically available CCTV footage.
+         * Trained an on-device facial recognition model to identify people.
+         * Built using OpenCV, Django and React Native.
+
+
+VirtualEye (Hackathon Project)
+         * Native Android application developed to assist people with limited visual capacity.
+         * Implemented Google Tesseract, Vision APIs, text to speech engines to help them navigate with talkback.
+
+
+Catasstrophy (Personal Project)
+         * Curated picture feed of cats made with React Native, Redux and thecatapi.com inspired by Instagram.
+
+
+Education
+Bachelor of Engineering in Computer Science                                               Apr 2015 - Apr 2019
+SCSVMV University, Kanchipuram

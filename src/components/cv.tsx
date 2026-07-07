@@ -1,0 +1,101 @@
+import StackIcon, { type IconName } from "tech-stack-icons";
+import { cn } from "@/util";
+
+type SkillItem = { name: string; icon?: string };
+type SkillGroup = { category: string; items: SkillItem[] };
+type ExperienceEntry = {
+  role: string;
+  company: string;
+  location: string;
+  start: string;
+  end: string;
+  highlights: string[];
+};
+
+export function CV({
+  skills,
+  experience,
+}: {
+  skills: SkillGroup[];
+  experience: ExperienceEntry[];
+}) {
+  return (
+    <section className="bg-background px-6 py-24 text-foreground sm:py-32">
+      <div className="mx-auto flex max-w-3xl flex-col gap-20">
+        <div className="flex flex-col gap-8">
+          <h2 className="text-3xl font-medium tracking-[-0.02em] sm:text-4xl">
+            Skills
+          </h2>
+          <div className="flex flex-col gap-6">
+            {skills.map((group) => (
+              <div key={group.category} className="flex flex-col gap-3">
+                <h3 className="font-mono text-sm text-foreground-muted">
+                  {group.category}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <SkillChip key={item.name} item={item} />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-8">
+          <h2 className="text-3xl font-medium tracking-[-0.02em] sm:text-4xl">
+            Experience
+          </h2>
+          <div className="flex flex-col">
+            {experience.map((job, i) => (
+              <div
+                key={`${job.role}-${job.company}`}
+                className={cn(
+                  "flex flex-col gap-3 py-6",
+                  i > 0 && "border-t border-foreground-faint",
+                )}
+              >
+                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <div>
+                    <h3 className="font-medium">{job.role}</h3>
+                    <p className="text-foreground-muted">
+                      {job.company}
+                      {job.location ? `, ${job.location}` : ""}
+                    </p>
+                  </div>
+                  <p className="whitespace-nowrap font-mono text-sm text-foreground-muted">
+                    {job.start} to {job.end}
+                  </p>
+                </div>
+                <ul className="flex flex-col gap-1 pl-5 text-foreground-muted [&>li]:list-disc [&>li]:marker:text-foreground-faint">
+                  {job.highlights.map((highlight) => (
+                    <li key={highlight} className="max-w-prose text-pretty">
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SkillChip({ item }: { item: SkillItem }) {
+  return (
+    <div className="flex items-center gap-2 rounded-full bg-foreground-faint py-1.5 pl-1.5 pr-3">
+      {item.icon ? (
+        <span className="flex h-6 w-6 shrink-0 items-center justify-center">
+          <StackIcon
+            name={item.icon as IconName}
+            variant="dark"
+            className="h-5 w-5"
+          />
+        </span>
+      ) : null}
+      <span className="font-mono text-sm">{item.name}</span>
+    </div>
+  );
+}

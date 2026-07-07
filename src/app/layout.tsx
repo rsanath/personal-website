@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, JetBrains_Mono } from "next/font/google";
+import { BottomNav } from "@/components/bottom-nav";
 import { ThemeToggle } from "@/components/theme-toggle";
 import "./globals.css";
 
@@ -37,9 +38,10 @@ export default function RootLayout({
         {/* biome-ignore lint/security/noDangerouslySetInnerHtml: static inline script (no user input) that must run before first paint to avoid a theme flash. */}
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
       </head>
-      <body className="min-h-full flex flex-col font-sans">
+      <body className="min-h-full flex flex-col pb-28 font-sans">
         <ThemeToggle />
         {children}
+        <BottomNav />
       </body>
     </html>
   );
