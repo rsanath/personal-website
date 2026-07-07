@@ -10,7 +10,6 @@ import {
   useSpring,
   useTransform,
 } from "motion/react";
-import Link from "next/link";
 import { type ReactNode, useEffect, useRef, useState } from "react";
 import {
   FaHouse as Home,
@@ -21,9 +20,9 @@ import {
 } from "react-icons/fa6";
 
 const NAV_ITEMS = [
-  { id: "home", href: "/#home", label: "Home", icon: Home },
-  { id: "about", href: "/#about", label: "About", icon: User },
-  { id: "contact", href: "/#contact", label: "Contact", icon: Mail },
+  { id: "home", href: "#home", label: "Home", icon: Home },
+  { id: "about", href: "#about", label: "About", icon: User },
+  { id: "contact", href: "#contact", label: "Contact", icon: Mail },
 ];
 
 const SECTION_IDS = NAV_ITEMS.map((item) => item.id);
@@ -109,7 +108,7 @@ function DockItem({
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       className={cn(
-        "relative flex shrink-0 items-center justify-center rounded-full border border-foreground-faint bg-background transition-[box-shadow,border-color] duration-150",
+        "relative flex shrink-0 items-center justify-center rounded-full border border-foreground-faint bg-background transition-[box-shadow,border-color] duration-150 cursor-pointer",
         {
           "shadow-[2px_2px_20px_0px_rgba(32,157,113,0.5)] border-primary-500 dark:border-primary-900":
             active,
@@ -137,13 +136,13 @@ function DockItem({
 
   if (href) {
     return (
-      <Link
+      <a
         href={href}
         aria-label={label}
         aria-current={active ? "page" : undefined}
       >
         {dock}
-      </Link>
+      </a>
     );
   }
 
