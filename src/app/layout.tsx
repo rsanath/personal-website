@@ -20,9 +20,9 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sanath",
+  title: "Sanath's Portfolio",
   description:
-    "Sanath — software developer building mobile apps, websites, servers, and blockchain apps.",
+    "Sanath - software developer building mobile apps, websites, servers, and blockchain apps.",
 };
 
 export default function RootLayout({
