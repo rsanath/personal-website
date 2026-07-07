@@ -1,13 +1,10 @@
 "use client";
 
-function toggleTheme() {
-  const root = document.documentElement;
-  const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-  root.setAttribute("data-theme", next);
-  localStorage.setItem("theme", next);
-}
+import { useTheme } from "@/hooks/use-theme";
 
 export function ThemeToggle() {
+  const { toggleTheme } = useTheme();
+
   return (
     <button
       type="button"

@@ -1,23 +1,61 @@
 "use client";
 
-import { cn } from "@/util";
 import { Home, Mail, User } from "lucide-react";
 import {
+  type MotionValue,
   motion,
   useMotionValue,
   useSpring,
   useTransform,
-  type MotionValue,
 } from "motion/react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { cn } from "@/util";
 
 const ITEMS = [
-  { href: "/#home", label: "Home", icon: Home },
-  { href: "/#about", label: "About", icon: User },
-  { href: "/#contact", label: "Contact", icon: Mail },
+  { id: "home", href: "/#home", label: "Home", icon: Home },
+  { id: "about", href: "/#about", label: "About", icon: User },
+  { id: "contact", href: "/#contact", label: "Contact", icon: Mail },
 ];
+
+const SECTION_IDS = ITEMS.map((item) => item.id);
+const INTERSECTION_THRESHOLDS = Array.from({ length: 21 }, (_, i) => i / 20);
+
+function useActiveSection(ids: string[]) {
+  const [active, setActive] = useState(ids[0]);
+
+  useEffect(() => {
+    const ratios = new Map<string, number>();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          ratios.set(entry.target.id, entry.intersectionRatio);
+        }
+        let bestId = ids[0];
+        let bestRatio = 0;
+        for (const id of ids) {
+          const ratio = ratios.get(id) ?? 0;
+          if (ratio > bestRatio) {
+            bestRatio = ratio;
+            bestId = id;
+          }
+        }
+        if (bestRatio > 0) setActive(bestId);
+      },
+      { threshold: INTERSECTION_THRESHOLDS },
+    );
+
+    for (const id of ids) {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    }
+
+    return () => observer.disconnect();
+  }, [ids]);
+
+  return active;
+}
 
 const BASE_SIZE = 50;
 const MAX_SIZE = 72;
@@ -79,8 +117,9 @@ function DockItem({
 }
 
 export function BottomNav() {
-  const pathname = usePathname();
+  const activeId = useActiveSection(SECTION_IDS);
   const mouseX = useMotionValue(Infinity);
+  const resetMagnify = () => mouseX.set(Infinity);
 
   return (
     <nav
@@ -90,22 +129,21 @@ export function BottomNav() {
     >
       <div
         onMouseMove={(e) => mouseX.set(e.pageX)}
-        onMouseLeave={() => mouseX.set(Infinity)}
-        className="pointer-events-auto relative flex items-end gap-3 rounded-full border border-foreground-faint"
+        onMouseLeave={resetMagnify}
+        onTouchEnd={resetMagnify}
+        onTouchCancel={resetMagnify}
+        className="pointer-events-auto relative flex items-end gap-3 rounded-full border border-foreground-faint bg-background/50 backdrop-blur-xl backdrop-saturate-150"
         style={{
           height: BASE_SIZE + PADDING * 2,
           paddingInline: PADDING,
           paddingBottom: PADDING,
         }}
       >
-        <div className="absolute inset-0 -z-10 overflow-hidden rounded-full">
-          <div className="absolute inset-0 bg-background/80 backdrop-blur-xl mask-[linear-gradient(to_top,black,transparent)]" />
-        </div>
         {ITEMS.map((item) => (
           <DockItem
             key={item.href}
             mouseX={mouseX}
-            active={pathname === item.href}
+            active={activeId === item.id}
             {...item}
           />
         ))}

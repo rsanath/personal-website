@@ -11,9 +11,12 @@ export default function ContactSection() {
   ];
 
   return (
-    <section id="contact" className="flex flex-1 flex-col bg-background px-6 py-12 text-foreground">
+    <section
+      id="contact"
+      className="flex flex-1 flex-col bg-background px-6 py-12 text-foreground"
+    >
       <div className="mx-auto flex w-full max-w-3xl flex-col gap-8">
-        <h1 className="text-3xl font-medium tracking-[-0.02em] sm:text-4xl">
+        <h1 className="font-serif text-3xl font-medium tracking-[-0.02em] sm:text-4xl">
           Contact
         </h1>
         <ul className="flex flex-col">
