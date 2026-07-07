@@ -33,11 +33,7 @@ for (let i = 0; i < LUT_SIZE; i++) {
   );
 }
 
-export function Plasma({
-  className
-}: {
-  className?: string
-}) {
+export function Plasma({ className }: { className?: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 

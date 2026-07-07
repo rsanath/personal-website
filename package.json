@@ -17,7 +17,8 @@
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "tailwind-merge": "^3.6.0",
-    "tech-stack-icons": "^3.7.1"
+    "tech-stack-icons": "^3.7.1",
+    "prettify": "pnpm exec prettier . --write"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
@@ -26,6 +27,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
+    "prettier": "3.9.4",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

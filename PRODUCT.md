@@ -16,7 +16,7 @@ A personal site that showcases who Sanath is (software developer — mobile apps
 
 Three words: **calm, quiet, engineer-y.**
 
-The ASCII plasma hero (title + intro over a looping animated field) is a fixed, out-of-scope centerpiece — it stays exactly as built. Everything *after* the hero is being redirected toward a plainer, document-like register inspired by luca-felix.com: a single-column, text-led page with no cards or boxed sections, a route-style nav (`/`, `/about`, `/contact` — reads like file paths, not menu labels), and personality carried through small deliberate details rather than decoration. Structure comes from type size and whitespace alone, the way a well-set page reads, not from borders or shadows.
+The ASCII plasma hero (title + intro over a looping animated field) is a fixed, out-of-scope centerpiece — it stays exactly as built. Everything _after_ the hero is being redirected toward a plainer, document-like register inspired by luca-felix.com: a single-column, text-led page with no cards or boxed sections, a route-style nav (`/`, `/about`, `/contact` — reads like file paths, not menu labels), and personality carried through small deliberate details rather than decoration. Structure comes from type size and whitespace alone, the way a well-set page reads, not from borders or shadows.
 
 Theme is dark-first: the site loads in dark mode by default, with the existing light-mode toggle kept as a considered alternative rather than an equal default.
 
