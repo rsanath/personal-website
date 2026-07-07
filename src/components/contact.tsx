@@ -1,12 +1,26 @@
+import { Mail } from "lucide-react";
+import Image from "next/image";
+import type { ReactNode } from "react";
+import StackIcon from "tech-stack-icons";
+import linkedinIcon from "@/app/assets/linkedin.svg";
 import data from "@/data.json";
+
+const LINK_ICONS: Record<string, ReactNode> = {
+  github: <StackIcon name="github" variant="dark" className="h-5 w-5" />,
+  linkedin: <Image src={linkedinIcon} alt="" className="h-5 w-5" />,
+};
 
 export default function ContactSection() {
   const items = [
-    { name: "email", url: `mailto:${data.email}`, display: data.email },
+    {
+      name: "email",
+      url: `mailto:${data.email}`,
+      icon: <Mail className="h-5 w-5" />,
+    },
     ...data.links.map((link) => ({
       name: link.name,
       url: link.url,
-      display: link.url.replace(/^https?:\/\//, ""),
+      icon: LINK_ICONS[link.name],
     })),
   ];
 
@@ -19,22 +33,17 @@ export default function ContactSection() {
         <h1 className="font-serif text-3xl font-medium tracking-[-0.02em] sm:text-4xl">
           Contact
         </h1>
-        <ul className="flex flex-col">
+        <ul className="flex flex-row gap-6 items-center justify-center">
           {items.map((item, i) => (
-            <li
-              key={item.name}
-              className={i > 0 ? "border-t border-foreground-faint" : undefined}
-            >
+            <li key={item.name}>
               <a
                 href={item.url}
                 target={item.name === "email" ? undefined : "_blank"}
                 rel={item.name === "email" ? undefined : "noreferrer"}
-                className="flex items-baseline justify-between gap-4 py-4 hover:text-primary-500"
+                aria-label={item.name}
+                className="group flex items-center justify-between gap-4 py-4 opacity-80 hover:opacity-100"
               >
-                <span className="font-mono text-sm text-foreground-muted">
-                  {item.name}
-                </span>
-                <span>{item.display}</span>
+                {item.icon}
               </a>
             </li>
           ))}
