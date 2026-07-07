@@ -4,7 +4,7 @@ import data from "@/data.json";
 export default function Home() {
   return (
     <main className="flex flex-1 flex-col">
-      <Hero name={data.name} line="Building small, considered things." />
+      <Hero title={`Hi, I'm ${data.name}`} subtitle={data.description} />
     </main>
   );
 }

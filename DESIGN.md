@@ -90,3 +90,9 @@ A small icon button, fixed to the top-right corner of the viewport on every page
 - **Don't** default to a bland, personality-free resume-in-a-template layout.
 - **Don't** introduce a second hue family outside the foreground ramp anywhere on the page except the hero.
 - **Don't** add ambient or looping motion outside the hero — the plasma is the one signature moment.
+
+## 7. Implementation Conventions
+
+- **Tailwind first.** Style with Tailwind utility classes. Reach for inline styles (the `style` prop, or direct DOM `.style` access) only when the effect genuinely isn't expressible in Tailwind — computed/dynamic values, canvas drawing, etc. (see `plasma.tsx`'s `ctx.fillStyle` and `canvas.style.fontFamily`).
+- **No CSS files beyond the single Tailwind entry point.** `src/app/globals.css` exists only for Tailwind's import, the `data-theme` custom variant, and the color/animation tokens under `@theme inline`. Don't add component stylesheets, CSS Modules, or other global CSS files.
+- **Conditional classes go through `cn`.** Use the `cn` helper from `src/util.ts` (clsx + tailwind-merge) any time class names are conditional or composed — never string-concatenate or template-literal class names together.
