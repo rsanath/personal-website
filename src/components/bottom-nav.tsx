@@ -14,9 +14,9 @@ import { usePathname } from "next/navigation";
 import { useRef } from "react";
 
 const ITEMS = [
-  { href: "/", label: "Home", icon: Home },
-  { href: "/about", label: "About", icon: User },
-  { href: "/contact", label: "Contact", icon: Mail },
+  { href: "/#home", label: "Home", icon: Home },
+  { href: "/#about", label: "About", icon: User },
+  { href: "/#contact", label: "Contact", icon: Mail },
 ];
 
 const BASE_SIZE = 50;
@@ -59,7 +59,7 @@ function DockItem({
         className={cn(
           "flex shrink-0 items-center justify-center rounded-full border border-foreground-faint bg-background transition-[box-shadow,border-color] duration-150",
           {
-            "shadow-[2px_2px_20px_0px_rgba(32,157,113,0.5)] border-primary-950":
+            "shadow-[2px_2px_20px_0px_rgba(32,157,113,0.5)] border-primary-500 dark:border-primary-900":
               active,
           },
         )}

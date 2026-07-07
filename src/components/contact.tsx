@@ -1,6 +1,6 @@
 import data from "@/data.json";
 
-export default function ContactPage() {
+export default function ContactSection() {
   const items = [
     { name: "email", url: `mailto:${data.email}`, display: data.email },
     ...data.links.map((link) => ({
@@ -11,7 +11,7 @@ export default function ContactPage() {
   ];
 
   return (
-    <main className="flex flex-1 flex-col bg-background px-6 py-24 text-foreground sm:py-32">
+    <section id="contact" className="flex flex-1 flex-col bg-background px-6 py-12 text-foreground">
       <div className="mx-auto flex w-full max-w-3xl flex-col gap-8">
         <h1 className="text-3xl font-medium tracking-[-0.02em] sm:text-4xl">
           Contact
@@ -37,6 +37,6 @@ export default function ContactPage() {
           ))}
         </ul>
       </div>
-    </main>
+    </section>
   );
 }

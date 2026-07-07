@@ -3,24 +3,19 @@ import { cn } from "@/util";
 
 type SkillItem = { name: string; icon?: string };
 type SkillGroup = { category: string; items: SkillItem[] };
-type ExperienceEntry = {
-  role: string;
-  company: string;
-  location: string;
-  start: string;
-  end: string;
-  highlights: string[];
-};
 
 export function CV({
   skills,
   experience,
 }: {
   skills: SkillGroup[];
-  experience: ExperienceEntry[];
+  experience: string;
 }) {
   return (
-    <section className="bg-background px-6 py-24 text-foreground sm:py-32">
+    <section
+      id="about"
+      className="bg-background px-6 py-20 text-foreground"
+    >
       <div className="mx-auto flex max-w-3xl flex-col gap-20">
         <div className="flex flex-col gap-8">
           <h2 className="text-3xl font-medium tracking-[-0.02em] sm:text-4xl">
@@ -46,36 +41,8 @@ export function CV({
           <h2 className="text-3xl font-medium tracking-[-0.02em] sm:text-4xl">
             Experience
           </h2>
-          <div className="flex flex-col">
-            {experience.map((job, i) => (
-              <div
-                key={`${job.role}-${job.company}`}
-                className={cn(
-                  "flex flex-col gap-3 py-6",
-                  i > 0 && "border-t border-foreground-faint",
-                )}
-              >
-                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <div>
-                    <h3 className="font-medium">{job.role}</h3>
-                    <p className="text-foreground-muted">
-                      {job.company}
-                      {job.location ? `, ${job.location}` : ""}
-                    </p>
-                  </div>
-                  <p className="whitespace-nowrap font-mono text-sm text-foreground-muted">
-                    {job.start} to {job.end}
-                  </p>
-                </div>
-                <ul className="flex flex-col gap-1 pl-5 text-foreground-muted [&>li]:list-disc [&>li]:marker:text-foreground-faint">
-                  {job.highlights.map((highlight) => (
-                    <li key={highlight} className="max-w-prose text-pretty">
-                      {highlight}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <div className="flex flex-col whitespace-break-spaces">
+            {experience}
           </div>
         </div>
       </div>

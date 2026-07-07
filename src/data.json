@@ -102,6 +102,7 @@
       ]
     }
   ],
+  "experienceSummary": "I'm a full stack developer with about 8 years of experience building web and mobile applications. For the last few years I've been freelancing, working mostly on blockchain products: wallets, multi-sig systems, DeFi apps, smart contracts, that kind of thing. One of the applications I built went through a full security audit by Least Authority and passed. I've handled everything from talking to clients and scoping out requirements to shipping and maintaining the final product.\n\nBefore going independent, I worked across a pretty wide range of domains. I helped build a solar analysis app used by hundreds of schools in multiple countries, built an e-commerce app for a luxury brand, worked on financial tools for a major bank at Wipro, and started my career building publishing platforms in Chennai. Along the way I've published npm libraries, contributed to open source, and built for everything from browsers to POS terminals.\n\nThese days I work mainly with TypeScript, Node.js, React, and PostgreSQL, with a soft spot for anything involving crypto.",
   "projects": [
     {
       "name": "Common Spot",
