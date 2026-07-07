@@ -1,5 +1,4 @@
 import { BottomNav } from "@/components/bottom-nav";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { THEME_INIT_SCRIPT } from "@/hooks/use-theme";
 import type { Metadata } from "next";
 import {
@@ -48,7 +47,6 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
       </head>
       <body className="min-h-full flex flex-col pb-28 font-sans">
-        <ThemeToggle />
         {children}
         <BottomNav />
       </body>

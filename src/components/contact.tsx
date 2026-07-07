@@ -1,28 +1,23 @@
-import { Mail } from "lucide-react";
-import Image from "next/image";
-import type { ReactNode } from "react";
-import StackIcon from "tech-stack-icons";
-import linkedinIcon from "@/app/assets/linkedin.svg";
 import data from "@/data.json";
+import type { ReactNode } from "react";
+import { FaAt, FaGithub, FaLinkedin } from "react-icons/fa6";
 
 const LINK_ICONS: Record<string, ReactNode> = {
-  github: <StackIcon name="github" variant="dark" className="h-5 w-5" />,
-  linkedin: <Image src={linkedinIcon} alt="" className="h-5 w-5" />,
+  email: <FaAt className="h-5 w-5" />,
+  github: <FaGithub className="h-5 w-5" />,
+  linkedin: <FaLinkedin className="h-5 w-5" />,
 };
 
 export default function ContactSection() {
   const items = [
     {
-      name: "email",
-      url: `mailto:${data.email}`,
-      icon: <Mail className="h-5 w-5" />,
-    },
-    ...data.links.map((link) => ({
+      "name": "email",
+      "url": `mailto:${data.email}`
+    }, ...data.links].map((link) => ({
       name: link.name,
       url: link.url,
       icon: LINK_ICONS[link.name],
-    })),
-  ];
+    }))
 
   return (
     <section
