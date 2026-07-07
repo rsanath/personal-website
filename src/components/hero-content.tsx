@@ -50,7 +50,7 @@ export function HeroContent({ name, line }: { name: string; line: string }) {
       <h1 className="text-balance text-[clamp(2.5rem,8vw,5.5rem)] font-medium tracking-[-0.04em] leading-[0.95]">
         {name}
       </h1>
-      <p className="max-w-md text-balance text-lg text-ink-muted sm:text-xl">
+      <p className="max-w-md text-balance text-lg text-foreground-muted sm:text-xl">
         {line}
       </p>
       <ScrollCue />
@@ -60,7 +60,7 @@ export function HeroContent({ name, line }: { name: string; line: string }) {
 
 function ScrollCue() {
   return (
-    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-ink-muted">
+    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-foreground-muted">
       <div className="motion-safe:animate-hero-scroll-cue">
         <svg
           width="20"
