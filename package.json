@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "biome check",
-    "format": "biome format --write",
-    "prettify": "npm exec prettier . --write"
+    "format": "biome format --write"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -27,7 +26,6 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
-    "prettier": "3.9.4",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
