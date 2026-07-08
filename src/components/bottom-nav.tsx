@@ -166,10 +166,14 @@ export function BottomNav() {
       style={{ height: BASE_SIZE + PADDING * 2 }}
     >
       <div
-        onMouseMove={(e) => mouseX.set(e.pageX)}
-        onMouseLeave={resetMagnify}
-        onTouchEnd={resetMagnify}
-        onTouchCancel={resetMagnify}
+        onPointerMove={(e) => {
+          if (e.pointerType !== "mouse") return;
+          mouseX.set(e.pageX);
+        }}
+        onPointerLeave={(e) => {
+          if (e.pointerType !== "mouse") return;
+          resetMagnify();
+        }}
         className="pointer-events-auto relative flex items-end gap-3 rounded-full border border-foreground-faint bg-background/50 backdrop-blur-xl backdrop-saturate-150"
         style={{
           height: BASE_SIZE + PADDING * 2,
