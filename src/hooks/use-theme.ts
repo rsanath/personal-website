@@ -10,7 +10,7 @@ const THEME_CHANGE_EVENT = "themechange";
 // Runs synchronously in <head>, before first paint, so there is no flash
 // of the wrong theme. See Next.js docs on preventing flash before hydration —
 // this genuinely has to be a blocking inline script, not a React effect.
-export const THEME_INIT_SCRIPT = `(function(){try{var t=localStorage.getItem("${STORAGE_KEY}");if(!t){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)}catch(e){}})()`;
+export const THEME_INIT_SCRIPT = `(function(){try{var t=localStorage.getItem("${STORAGE_KEY}")||"dark";document.documentElement.setAttribute("data-theme",t)}catch(e){}})()`;
 
 function readTheme(): Theme {
   return document.documentElement.getAttribute("data-theme") === "dark"
@@ -23,11 +23,11 @@ function subscribe(callback: () => void) {
   return () => window.removeEventListener(THEME_CHANGE_EVENT, callback);
 }
 
-// Matches the server's default ("light", per the <html> tag in layout.tsx).
+// Matches the server's default ("dark", per the <html> tag in layout.tsx).
 // useSyncExternalStore swaps this out for readTheme() right after hydration,
 // so every consumer agrees on the initial value without a hydration mismatch.
 function getServerSnapshot(): Theme {
-  return "light";
+  return "dark";
 }
 
 export function useTheme() {
